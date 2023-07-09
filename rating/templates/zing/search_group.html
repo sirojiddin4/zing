@@ -1,0 +1,17 @@
+{% extends 'zing/base.html' %}
+
+{% block content %}
+<div class="custom-dropdown" align="center">
+  <form method="post" action="{% url 'search_group' %}">
+    {% csrf_token %}
+    <p><label for="group">Select a Group:</label></p>
+    <select name="group" id="group">
+      <option value="">-- Select Group --</option>
+      {% for group in groups %}
+      <option value="{{ group.id }}">{{ group.name }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Show Credits</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <!-- Rest of your HTML content -->
+
+  {% block content %}
+    <h1><p align="center">WELCOME TO THE ZING</p></h1>
+    {% if request.user.is_authenticated %}
+    <div class="main" align="center">
+      <a href="{% url 'logout'%}">Log out</a>
+      <div class="links" align="center">
+        <a href="{% url 'search_group'%}">Groups</a>
+      </div>
+    </div>
+    {% else %}
+    <div class="main" align="center">
+      <a href="{% url 'login'%}">Log in</a>
+    </div>
+   
+    {% endif %}
+
+    
+  {% endblock %}
+</body>
+</html>

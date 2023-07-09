@@ -1,0 +1,37 @@
+{% extends 'zing/base.html' %}
+
+{% block content %}
+{% include 'zing/search_group.html' with groups=groups %}
+
+{% if selected_group %}
+<h2 align="center">Course: {{ selected_group.course.name }}</h2>
+<div class="table-container">
+  <table class="credits-table">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Progress</th>
+        <th>Course Mark</th>
+        {% for lesson in selected_group.course.lesson_set.all %}
+        <th>{{ lesson.name }}</th>
+        {% endfor %}
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row_data in table_data %}
+      <tr>
+        <td>{{ row_data.student.name }}</td>
+        <td class="percentage">{{ row_data.percentage }}%</td>
+        <td class="average">{{ row_data.average_credit }}</td>
+        {% for credit in row_data.credits %}
+        <td>{{ credit }}</td>
+        {% endfor %}
+        <td><a href="{% url 'edit_credit' row_data.student.id selected_group.id %}">Edit</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endif %}
+{% endblock %}

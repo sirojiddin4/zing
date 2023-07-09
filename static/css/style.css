@@ -1,0 +1,71 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333333;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styles */
+h1, h2, h3 {
+  color: #FFD700; /* Golden color */
+}
+
+/* Table Styles */
+.table-container {
+  width: 100%;
+  max-width: 95%; /* Adjust the maximum width as needed */
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.credits-table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: auto;
+}
+
+.credits-table th,
+.credits-table td {
+  padding: 8px;
+  text-align: center;
+}
+
+.credits-table th:first-child,
+.credits-table td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: white;
+  z-index: 2;
+}
+
+.credits-table th:not(:first-child),
+.credits-table td:not(:first-child) {
+  z-index: 1;
+}
+
+.credits-table th:first-child,
+.credits-table td:first-child {
+  position: sticky;
+  left: 0;
+  background-color: white;
+}
+
+.credits-table td:first-child {
+  z-index: 3;
+}
+
+.credits-table th:not(:first-child),
+.credits-table td:not(:first-child) {
+  background-color: white;
+}
+
+
+.credits-table.percentage,
+.credits-table.average {
+  color:#FFD700;
+}
