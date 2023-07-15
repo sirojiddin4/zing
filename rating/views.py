@@ -5,10 +5,7 @@ from .models import Group, Lesson, Credit, Student
 from django.db.models import Count
 
 def home(request):
-    if request.user.is_authenticated:
-        pass
-    else:
-        return redirect('login')
+   
   
     return render(request,'zing/base.html',{})
 

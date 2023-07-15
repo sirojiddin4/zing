@@ -27,7 +27,11 @@
         {% for credit in row_data.credits %}
         <td>{{ credit }}</td>
         {% endfor %}
-        <td><a href="{% url 'edit_credit' row_data.student.id selected_group.id %}">Edit</a></td>
+        <td>
+          {% if request.user.is_authenticated%}
+          <a href="{% url 'edit_credit' row_data.student.id selected_group.id %}">Edit</a></td>
+          {% endif %}
+          
       </tr>
       {% endfor %}
     </tbody>
